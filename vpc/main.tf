@@ -7,6 +7,3 @@ resource "aws_vpc" "main" {
     Name = var.vpc_name
   }
 }
-
-# Add more VPC-related resources as needed
-
