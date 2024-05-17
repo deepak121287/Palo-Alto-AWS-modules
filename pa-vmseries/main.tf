@@ -33,7 +33,7 @@ resource "aws_network_interface" "management_nic" {
 
 resource "aws_eip" "management_eip" {
   instance                 = aws_instance.palo_alto.id
-  vpc                      = true
+  domain                   = "vpc"
   network_interface        = aws_network_interface.management_nic.id
 }
 
