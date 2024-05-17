@@ -1,6 +1,10 @@
 output "management_nic_private_ip" {
   value = aws_network_interface.management_nic.private_ip
 }
+
+output "management_eip" {
+  value = aws_eip.management_eip.public_ip
+}
 output "data_nic_private_ip" {
   value = aws_network_interface.data_nic.private_ip
 }
