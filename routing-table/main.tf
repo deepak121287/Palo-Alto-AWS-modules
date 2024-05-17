@@ -11,3 +11,9 @@ resource "aws_route_table" "rtb" {
 
   tags = var.tags
 }
+
+resource "aws_route_table_association" "subnet_association" {
+  for_each = toset(var.subnet_ids)
+  subnet_id = each.value
+  route_table_id = aws_route_table.rtb.id
+}

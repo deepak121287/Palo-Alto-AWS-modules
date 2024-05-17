@@ -8,4 +8,5 @@ variable "routes" {
 }
 
 variable "tags" {}
+variable "subnet_ids" {}
 
