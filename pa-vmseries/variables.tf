@@ -1,3 +1,6 @@
+variable "region" {
+  type        = string
+}
 variable "palo_alto_ami" {
   type        = string
 }
