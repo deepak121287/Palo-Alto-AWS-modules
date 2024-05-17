@@ -1,5 +1,4 @@
 resource "aws_instance" "palo_alto" {
-  region                     = var.region 
   ami                        = var.palo_alto_ami
   instance_type              = var.instance_type
   key_name                   = var.key_name
