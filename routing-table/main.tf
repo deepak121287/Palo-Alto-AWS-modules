@@ -13,7 +13,8 @@ resource "aws_route_table" "rtb" {
 }
 
 resource "aws_route_table_association" "subnet_association" {
-  for_each = toset(var.subnet_ids)
-  subnet_id = each.value
+#  for_each = toset(var.subnet_ids)
+#  subnet_id = each.value
+  subnet_id = var.subnet_ids
   route_table_id = aws_route_table.rtb.id
 }
