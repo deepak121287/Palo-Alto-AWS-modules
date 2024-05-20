@@ -5,12 +5,13 @@ resource "aws_instance" "palo_alto" {
 
   network_interface {
     device_index          = 0
-    network_interface_id  = aws_network_interface.data_nic.id
+    network_interface_id  = aws_network_interface.management_nic.id
   }
   network_interface {
     device_index          = 1
-    network_interface_id  = aws_network_interface.management_nic.id
+    network_interface_id  = aws_network_interface.data_nic.id
   }
+
   tags = {
     Name = var.instance_name
   }
