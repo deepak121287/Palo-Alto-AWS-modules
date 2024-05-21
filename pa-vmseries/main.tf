@@ -10,11 +10,11 @@ resource "aws_instance" "palo_alto" {
   #   /opt/pancfg/wrapper pan_cfg_sync
   # EOF
   network_interface {
-    device_index          = 0
+    device_index          = 1
     network_interface_id  = aws_network_interface.management_nic.id
   }
   network_interface {
-    device_index          = 1
+    device_index          = 0
     network_interface_id  = aws_network_interface.data_nic.id
   }
 
