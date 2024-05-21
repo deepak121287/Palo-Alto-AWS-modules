@@ -3,12 +3,12 @@ resource "aws_instance" "palo_alto" {
   instance_type              = var.instance_type
   key_name                   = var.key_name
 
-  user_data = <<-EOF
-    #!/bin/bash
-    echo "mgmt-interface-swap=enable" >> /opt/pancfg/mgmt_cfg.xml
-    echo "admin_password=${var.admin_password}" >> /opt/pancfg/mgmt_cfg.xml
-    /opt/pancfg/wrapper pan_cfg_sync
-  EOF
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   echo "mgmt-interface-swap=enable" >> /opt/pancfg/mgmt_cfg.xml
+  #   echo "admin_password=${var.admin_password}" >> /opt/pancfg/mgmt_cfg.xml
+  #   /opt/pancfg/wrapper pan_cfg_sync
+  # EOF
   network_interface {
     device_index          = 0
     network_interface_id  = aws_network_interface.management_nic.id
