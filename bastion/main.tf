@@ -16,12 +16,25 @@ resource "aws_instance" "bastion" {
   device_index          = 0
   network_interface_id  = aws_network_interface.bastion_nic.id
   }
+
+  network_interface {
+  device_index          = 1
+  network_interface_id  = aws_network_interface.bastion_nic_2.id
+  }
   tags = {
     Name = "BastionHost"
   }
 }
 
 resource "aws_network_interface" "bastion_nic" {
+  subnet_id       = var.bastion_mgmt_subnet_id
+  security_groups = var.bastion_security_group_ids
+  tags = {
+    Name = "${var.bastion_instance_name}-mng"
+  }
+}
+
+resource "aws_network_interface" "bastion_nic_2" {
   subnet_id       = var.bastion_data_subnet_id
   security_groups = var.bastion_security_group_ids
   tags = {
