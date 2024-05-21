@@ -28,3 +28,13 @@ resource "aws_network_interface" "bastion_nic" {
     Name = "${var.bastion_instance_name}-data"
   }
 }
+
+resource "aws_eip" "bastion_eip" {
+  domain                   = "vpc"
+#  network_interface        = aws_network_interface.management_nic.id
+}
+
+resource "aws_eip_association" "bastion_eip_association" {
+  allocation_id      = aws_eip.bastion_eip.id
+  network_interface_id = aws_network_interface.bastion_nic.id
+}
