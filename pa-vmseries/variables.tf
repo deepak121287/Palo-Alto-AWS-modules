@@ -26,3 +26,7 @@ variable "security_group_ids" {
 variable "instance_name" {
   type        = string
 }
+
+variable "admin_password" {
+  type        = string
+}
