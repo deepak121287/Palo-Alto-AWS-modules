@@ -22,9 +22,9 @@ resource "aws_instance" "bastion" {
 }
 
 resource "aws_network_interface" "bastion_nic" {
-  subnet_id       = var.data_subnet_id
-  security_groups = var.security_group_ids
+  subnet_id       = var.bastion_data_subnet_id
+  security_groups = var.bastion_security_group_ids
   tags = {
-    Name = "${var.instance_name}-data"
+    Name = "${var.bastion_instance_name}-data"
   }
 }
