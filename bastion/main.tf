@@ -9,8 +9,8 @@ resource "aws_instance" "bastion" {
               yum install -y git
               cd /home/ec2-user
               git clone https://github.com/deepak121287/Palo-Alto-PANOS-modules.git
+              sudo -s
               chmod +x /home/ec2-user/Palo-Alto-PANOS-modules/configuration.py
-              chmod +x /home/ec2-user/Palo-Alto-PANOS-modules/PA-keypair.pem
               EOF
   network_interface {
   device_index          = 0
