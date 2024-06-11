@@ -9,7 +9,7 @@ resource "aws_instance" "bastion" {
               yum install -y git
               cd /home/ec2-user
               git clone https://github.com/deepak121287/Palo-Alto-PANOS-modules.git
-              sudo chmod 777 /home/ec2-user/Palo-Alto-PANOS-modules/configuration.py
+              sudo chmod 777 /home/ec2-user/Palo-Alto-PANOS-modules/Initial-files/configuration.py
               sudo yum install pip
               sudo pip install paramiko
               sudo pip install boto3
