@@ -10,9 +10,9 @@ resource "aws_instance" "bastion" {
               cd /home/ec2-user
               git clone https://github.com/deepak121287/Palo-Alto-PANOS-modules.git
               sudo chmod 777 /home/ec2-user/Palo-Alto-PANOS-modules/Initial-files/configuration.py
-              sudo yum install pip
-              sudo pip install paramiko
-              sudo pip install boto3
+              yes | sudo yum install pip
+              yes | sudo pip install paramiko
+              yes | sudo pip install boto3
               EOF
   network_interface {
   device_index          = 0
