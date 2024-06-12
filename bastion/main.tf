@@ -2,6 +2,7 @@ resource "aws_instance" "bastion" {
   ami           = var.bastion_ami
   instance_type = var.bastion_instance_type
   key_name      = var.key_name
+  iam_instance_profile = var.iam_role_name
 
   user_data = <<-EOF
               #!/bin/bash
@@ -13,9 +14,6 @@ resource "aws_instance" "bastion" {
               yes | sudo yum install pip
               yes | sudo pip install paramiko
               yes | sudo pip install boto3
-              aws configure set aws_access_key_id "$(var.access_key_id)"
-              aws configure set aws_secret_access_key "$(var.secret_key)"
-              aws configure set region "$(var.region)"
               aws configure set output json
               EOF
   network_interface {
