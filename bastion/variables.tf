@@ -8,4 +8,4 @@ variable bastion_instance_name {}
 variable region {}
 variable access_key_id {}
 variable secret_key {}
-variable "iam_role_name" {}
+variable iam_role_name {}
