@@ -13,7 +13,10 @@ resource "aws_instance" "bastion" {
               yes | sudo yum install pip
               yes | sudo pip install paramiko
               yes | sudo pip install boto3
-              aws configure set aws_access_key_id $(var.access_key_id) && aws configure set aws_secret_access_key $(var.secret_key) && aws configure set region $(var.region) && aws configure set output json
+              aws configure set aws_access_key_id "$(var.access_key_id)"
+              aws configure set aws_secret_access_key "$(var.secret_key)"
+              aws configure set region "$(var.region)"
+              aws configure set output json
               EOF
   network_interface {
   device_index          = 0
